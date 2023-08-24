@@ -1,0 +1,27 @@
+<section>
+    <div className="bankHome">
+      <Image className='bankLogo' src={BankLogo}/>
+      <button
+        className="proceedButton"
+        onClick={() => {
+          getBank();
+        }}
+      >
+        Proceed to Payment
+      </button>
+
+      <div className="accountDetails">
+        <input type="text"  nanme ="bankAccount" placeholder="Your Account ID"></input>
+      </div>
+      
+      {bankCtx.connectedToBank && (
+      <div className="bankDetails">
+        <div>username : <b>{bankCtx.bankDetails.name}</b></div>
+        <div>email : <b>{bankCtx.bankDetails.email}</b></div>
+        <div>amount : <i><b>৳ {bankCtx.bankDetails.amount}</b></i></div>
+      </div>
+    ) }
+
+    </div>
+    
+  </section>

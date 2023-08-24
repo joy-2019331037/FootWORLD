@@ -19,14 +19,14 @@ export default function ShowCart() {
   }
   return (
     <>
-      <div className="flex mt-8">
+      <div className="cartPage">
         <ShowCartDetail
           isLoading={isLoading}
           data={data}
           cartDetail={cartCtx}
         />
         <PaymentDetail isLoading={isLoading} data={data} cartDetail={cartCtx} />
-        {paymentStatus && <PaymentStatus status={0} msg={"incomplete"} />}
+        {/* {paymentStatus && <PaymentStatus status={0} msg={"incomplete"} />} */}
       </div>
     </>
   );

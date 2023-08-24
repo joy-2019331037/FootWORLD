@@ -1,6 +1,10 @@
 import { useRef } from "react";
 import { getSession, signIn } from "next-auth/client";
 import { useRouter } from "next/router";
+
+import Image from "next/image";
+import Logo from '../../public/product-images/logo.png'
+
 export default function LoginPage() {
   const router = useRouter();
   const emailRef = useRef();
@@ -21,26 +25,34 @@ export default function LoginPage() {
   }
   return (
     <>
-      <h1 className="mt-8 text-slate-500 text-center font-bold text-5xl">
-        Log In here
-      </h1>
-      <form className="flex flex-col mt-8 mx-auto p-8 w-1/3 h-2/3 justify-between border-2 border-red-50 rounded">
-        <input
-          ref={emailRef}
-          className="form-input"
-          type="email"
-          placeholder="Your email"
-        />
-        <input
-          ref={passwordRef}
-          className="form-input"
-          type="password"
-          placeholder="choose a password"
-        />
-        <button onClick={handleSubmit} className="btn2">
-          Sign Up
-        </button>
-      </form>
+      <div className="login">
+      <center>
+        <Image className="loginLogo" src={Logo}></Image>
+      <h1 className="header">
+            Sign In here
+          </h1>
+      </center>
+        <div className="loginContainer">
+         
+          <form className="form">
+            <input
+              ref={emailRef}
+              className="input"
+              type="email"
+              placeholder="Your email"
+            />
+            <input
+              ref={passwordRef}
+              className="input"
+              type="password"
+              placeholder="Your password"
+            />
+            <button onClick={handleSubmit} className="loginButton">
+              Log In
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 }

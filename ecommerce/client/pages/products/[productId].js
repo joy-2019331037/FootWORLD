@@ -72,13 +72,13 @@ export default function SingleProductDetailsPage() {
         </section>
         <section id="product-details" className="w-2/5 ">
           <div>
-            <h2 className="text-6xl mb-20 text-orange-600 ">
+            <h2 className="text-6xl mb-20 font-bold">
               {data.product.name}
               {/* <span className="p-3 ml-8 mb-8 rounded-md font-semibold text-white text-2xl bg-orange-400">
                 $ {data.product.price}
               </span> */}
-              <div className="w-24 mt-4 mb-4 rounded-md p-2 font-bold text-white text-2xl bg-orange-400">
-                $ {data.product.price}
+              <div className="w-20 mt-4 mb-4 rounded-md p-2 font-bold text-white text-xl bg-green-400">
+              ৳ {data.product.price}
               </div>
             </h2>
             <p className="mb-12">
@@ -93,14 +93,14 @@ export default function SingleProductDetailsPage() {
                   className="mx-8 flex justify-between items-center"
                 >
                   <button
-                    className="bg-orange-300 p-4 rounded w-16 text-white font-bold text-3xl"
+                    className="bg-green-300 p-4 rounded w-16 text-white font-bold text-3xl"
                     onClick={() => {
                       incrementProduct(router.query.productId);
                     }}
                   >
                     +
                   </button>
-                  <span className="text-orange-300 inline-block text-center text-2xl font-bold w-16">
+                  <span className="text-green-300 inline-block text-center text-2xl font-bold w-16">
                     <p>
                       {
                         state.find((e) => {
@@ -110,7 +110,7 @@ export default function SingleProductDetailsPage() {
                     </p>
                   </span>
                   <button
-                    className="bg-orange-300 p-4 rounded w-16 text-white font-bold text-3xl"
+                    className="bg-green-300 p-4 rounded w-16 text-white font-bold text-3xl "
                     onClick={() => {
                       decrementProduct(router.query.productId);
                     }}
@@ -122,7 +122,7 @@ export default function SingleProductDetailsPage() {
                 <section className="mr-16">
                   <Link
                     href={"/cart"}
-                    className="bg-blue-500 text-white p-4 rounded font-bold hover:bg-blue-700"
+                    className="bg-blue-500 text-white p-4 rounded font-bold hover:bg-blue-700 hover:bg-white hover:text-blue-800 hover:font-bold hover:shadow hover:shadow-blue-400"
                   >
                     Go to Cart
                   </Link>

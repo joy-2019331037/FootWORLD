@@ -1,5 +1,9 @@
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import Logo from '../../public/product-images/logo.png'
+import swal from 'sweetalert2'
+
 export default function SignUpPage() {
   const nameRef = useRef();
   const emailRef = useRef();
@@ -22,38 +26,48 @@ export default function SignUpPage() {
     const ans = await response.json();
     console.log(ans);
     if (ans.user) {
+      swal.fire(
+        'User has been created successfully.'
+      );
       router.replace("/auth/login");
     }
   }
 
   return (
     <>
-      <h1 className="mt-8 text-slate-500 text-center font-bold text-5xl">
-        Sign Up here
-      </h1>
-      <form className="flex flex-col mt-8 mx-auto p-8 w-1/3 h-2/3 justify-between border-2 border-red-50 rounded">
+      <div className="login">
+      <center>
+        <Image className="loginLogo" src={Logo}></Image>
+      <h1 className="header">
+            Sign Up here
+          </h1>
+      </center>
+        <div className="loginContainer">
+        <form className="form">
         <input
-          className="form-input"
+          className="input"
           type="text"
           placeholder="Your name"
           ref={nameRef}
         />
         <input
-          className="form-input"
+          className="input"
           type="email"
           placeholder="Your email"
           ref={emailRef}
         />
         <input
           ref={passwordRef}
-          className="form-input"
+          className="input"
           type="password"
           placeholder="choose a password"
         />
-        <button onClick={handleSubmit} className="btn2">
+        <button onClick={handleSubmit} className="loginButton">
           Sign Up
         </button>
       </form>
+        </div>
+      </div>
     </>
   );
 }

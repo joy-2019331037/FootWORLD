@@ -8,16 +8,19 @@ const CartContext = createContext({
 export default CartContext;
 const initialState = [
   {
-    id: "649ec34f265db8f1465837a2",
+    id: "64df8ca58e46c11a93532d6c",
     quantity: 0,
+    name:"Jersey"
   },
   {
-    id: "649ec5a4265db8f1465837a3",
+    id: "64dfba20743771c156a8892b",
     quantity: 0,
+    name:"Al-rihla"
   },
   {
-    id: "649ec6d4265db8f1465837a4",
+    id: "64dfbb83743771c156a8892c",
     quantity: 0,
+    name:"Nike Shoe"
   },
 ];
 export function CartContextProvider({ children }) {
@@ -41,6 +44,8 @@ export function CartContextProvider({ children }) {
   function decrementProduct(id) {
     const updateState = state.map((e) => {
       if (id === e.id) {
+        if(e.quantity<1)
+          return {...e};
         return {
           ...e,
           quantity: e.quantity - 1,

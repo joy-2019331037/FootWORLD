@@ -11,39 +11,45 @@ const ShowCartDetail = ({ isLoading, data, cartDetail }) => {
   }
 
   return (
-    <section className="mt-6 ml-6">
-      <ul>
+    <section className="header">
+      <div className="title">
+        <label>Name</label>
+        <label>Price</label>
+        <label>Quantity</label>
+        <label>Total</label>
+      </div>
+      <div className="ul">
         {isLoading ? (
           <Loading />
         ) : (
-          <ul className="shadow-lg p-8 ml-12 text-3xl rounded">
+          <ul className="ul">
             {data.map((e) => {
               return (
                 <li
-                  className="m-8 border-2 p-4 border-orange-300 flex justify-between"
+                  className="list"
                   key={e._id}
                 >
                   <Link href={`products/${e._id}`}>
-                    <div className="text-orange-800">{e.name} &nbsp;|</div>
+                    {e.name} 
                   </Link>
                   <div>
-                    &nbsp; {e.price}$ each &nbsp;
-                    <span className="text-orange-800">|</span>
+                   {e.price}
+                   
                   </div>
                   <div>
-                    &nbsp;{findProductQuantity(e._id, cartDetail)}'s &nbsp;
-                    <span className="text-orange-800">|</span>
+                    {findProductQuantity(e._id, cartDetail)}'s 
+                  
                   </div>
                   <div>
-                    &nbsp; total = &nbsp;
-                    {calculateTotalForASingleItem(e._id, e.price)}$
+                    
+                  ৳ {calculateTotalForASingleItem(e._id, e.price)}
                   </div>
                 </li>
               );
             })}
           </ul>
         )}
-      </ul>
+      </div>
     </section>
   );
 };
